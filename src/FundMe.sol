@@ -41,15 +41,14 @@ contract FundMe {
     }
 
     function withdraw() public onlyOwner {
-
         for (uint256 funderIndex = 0; funderIndex < s_funders.length; funderIndex++) {
-    address funder = s_funders[funderIndex];
-    s_addressToAmountFunded[funder] = 0;
-}
+            address funder = s_funders[funderIndex];
+            s_addressToAmountFunded[funder] = 0;
+        }
 
-// Replace the call statement with:
-(bool callSuccess,) = payable(msg.sender).call{value: address(this).balance}("");
-require(callSuccess, "Call failed");
+        // Replace the call statement with:
+        (bool callSuccess,) = payable(msg.sender).call{value: address(this).balance}("");
+        require(callSuccess, "Call failed");
         // for (uint256 funderIndex = 0; funderIndex < s_funders.length; funderIndex++) {
         //     address funder = s_funders[funderIndex];
         //     s_addressToAmountFunded[funder] = 0;
@@ -65,8 +64,6 @@ require(callSuccess, "Call failed");
         // call
         // (bool callSuccess,) = payable(msg.sender).call{value: address(this).balance}("");
         // require(callSuccess, "Call failed");
-
-        
     }
 
     // Explainer from: https://solidity-by-example.org/fallback/
