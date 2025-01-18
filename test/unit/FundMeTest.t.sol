@@ -99,10 +99,7 @@ contract FundMeTest is Test {
         vm.prank(fundMe.getOwner());
         fundMe.withdraw();
         vm.stopPrank();
-
-        //Capture the ending balance after the withdrawal
-        //  uint256 endingOwnerBalance = fundMe.getOwner().balance;
-        //  uint256 endingFundMeBalance = address(fundMe).balance;
+   
 
         //Assert
         assert(address(fundMe).balance == 0);
