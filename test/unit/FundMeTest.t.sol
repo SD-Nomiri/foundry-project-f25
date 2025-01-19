@@ -94,14 +94,14 @@ contract FundMeTest is Test {
         uint256 startingOwnerBalance = fundMe.getOwner().balance;
         uint256 startingFundMeBalance = address(fundMe).balance;
 
-        //Act
+        //Acts
         vm.txGasPrice(0);
         vm.prank(fundMe.getOwner());
         fundMe.withdraw();
         vm.stopPrank();
    
 
-        //Assert
+        //Asserts
         assert(address(fundMe).balance == 0);
         assert(startingFundMeBalance + startingOwnerBalance == fundMe.getOwner().balance);
     }
