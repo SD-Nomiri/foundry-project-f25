@@ -1,0 +1,58 @@
+# Foundry Project
+
+This repository contains a Solidity project that uses Foundry for development, testing, and deployment. The project includes various scripts and configurations to manage the lifecycle of the Solidity contracts.
+
+## Table of Contents
+
+- [Setup](#setup)
+- [Build](#build)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Scripts](#scripts)
+
+## Setup
+
+To set up the project, you need to have Foundry installed. You can install Foundry using the following command:
+
+```sh
+curl -L https://foundry.paradigm.xyz | bash
+
+After installing Foundry, you need to install the required dependencies. Run the following command:
+forge install
+
+Build
+To build the project, run the following command:
+forge build
+
+Testing
+To run the tests, use the following command:
+forge test
+
+This will execute the tests defined in the Solidity files.
+
+Deployment
+To deploy the contracts, you can use the provided scripts. For example, to deploy the DeployFundMe contract, run:
+
+sh
+forge script script/DeployFundMe.s.sol:DeployFundMe --rpc-url <RPC_URL> --private-key <PRIVATE_KEY> --broadcast
+Replace <RPC_URL> and <PRIVATE_KEY> with the appropriate values for your network.
+
+Scripts
+The repository includes various scripts to manage the contracts. Here are some examples:
+
+build: forge build
+clean: forge clean
+test: forge test
+deploy: forge script script/DeployFundMe.s.sol:DeployFundMe --rpc-url <RPC_URL> --private-key <PRIVATE_KEY> --broadcast
+For more details, refer to the Makefile and the scripts in the script directory.
+
+CI/CD
+The project uses GitHub Actions for continuous integration. The workflow is defined in .github/workflows/test.yml. It includes steps for building, formatting, and testing the project.
+
+This README provides an overview of the project and instructions on how to set it up, build, test, and deploy the contracts. For more information, refer to the individual files and scripts in the repository.
+
+
+
+
+
+
